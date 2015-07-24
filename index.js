@@ -49,8 +49,8 @@ function error(opts) {
           break;
 
         case 'json':
-          if ('development' == env) this.body = { error: err.message }
-          else if (err.expose) this.body = { error: err.message }
+          if ('development' == env) this.body = { error: err.message, status: err.status, name: err.name, stack: err.stack }
+          else if (err.expose) this.body = {  error: err.message, status: err.status, name: err.name }
           else this.body = { error: http.STATUS_CODES[this.status] }
           break;
 
