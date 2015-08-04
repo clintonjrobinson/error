@@ -50,8 +50,7 @@ function error(opts) {
 
         case 'json':
           if ('development' == env) this.body = { error: err.message, status: err.status, name: err.name, data: err.data, stack: err.stack }
-          else if (err.expose) this.body = {  error: err.message, status: err.status, name: err.name, data: err.data }
-          else this.body = { error: http.STATUS_CODES[this.status] }
+          else this.body = {  error: err.message, status: err.status, name: err.name, data: err.data }
           break;
 
         case 'html':
